@@ -1073,7 +1073,10 @@ main.o: ../imgaug/main.cpp ../imgaug/mainwindow.h \
 		../../../anaconda3/include/qt/QtWidgets/qapplication.h \
 		../../../anaconda3/include/qt/QtWidgets/qdesktopwidget.h \
 		../../../anaconda3/include/qt/QtGui/qguiapplication.h \
-		../../../anaconda3/include/qt/QtGui/qinputmethod.h
+		../../../anaconda3/include/qt/QtGui/qinputmethod.h \
+		../../../anaconda3/include/qt/QtWidgets/QStyle \
+		../../../anaconda3/include/qt/QtWidgets/qstyle.h \
+		../../../anaconda3/include/qt/QtWidgets/QDesktopWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../imgaug/main.cpp
 
 mainwindow.o: ../imgaug/mainwindow.cpp ../imgaug/mainwindow.h \
