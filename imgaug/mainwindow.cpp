@@ -146,7 +146,7 @@ void MainWindow::on_btn_save_clicked()
 
 void MainWindow::on_cb_hflip_clicked(bool checked)
 {
-//    Mat hflip_image = imread(imagePath.toStdString());
+    Mat hflip_image = imread(imagePath.toStdString());
 }
 
 void MainWindow::on_cb_vflip_clicked(bool checked)
