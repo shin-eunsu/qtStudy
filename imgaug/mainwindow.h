@@ -10,13 +10,18 @@
 #include <QImageReader>
 #include <QImageWriter>
 #include <QStandardPaths>
+#include <qlistwidget.h>
 
-#include <opencv2/opencv.hpp>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+//#include <opencv2/opencv.hpp>
+//#include <opencv2/core/core.hpp>
+//#include <opencv2/highgui/highgui.hpp>
+//#include <opencv2/imgproc/imgproc.hpp>
 
-using namespace cv;
+void open_GraphicsView1();
+
+
+//using namespace cv;
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -29,6 +34,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
 
 private slots:
     void on_action_Open_triggered();
@@ -43,8 +49,6 @@ private slots:
 
     void on_sbar_rotate_valueChanged(int value);
 
-    void on_btn_save_clicked();
-
     void on_cb_hflip_clicked(bool checked);
 
     void on_cb_vflip_clicked(bool checked);
@@ -52,6 +56,10 @@ private slots:
     void on_btn_resize_default_clicked();
 
     void on_txt_resize_width_textChanged(const QString &arg1);
+
+    void on_actionSave_AugImage_triggered();
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
@@ -62,6 +70,7 @@ private:
     QImage *imageObject;
     QPixmap rotate_image;
     QPixmap resize_image;
+    QPixmap save_image;
 //    QMatrix rm;
 
     QGraphicsScene *scene;
@@ -71,7 +80,7 @@ private:
     int ini_height_gv2;
 
     double image_ratio;
-    double rotation_angle;
+    double rotation_angle;    
 };
 
 #endif // MAINWINDOW_H

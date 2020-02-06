@@ -38,7 +38,7 @@ FORMS += \
 
 INCLUDEPATH += /usr/local/include/opencv4/opencv2 /usr/local/include
 LIBS += `pkg-config --libs opencv`
-LIBS += -L/usr/lib/x86_64-linux-gnu/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui
-LIBS += -L/usr/local/lib -lopencv_shape -lopencv_videoio
--lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_shape -lopencv_videoio -lopencv_calib3d -lopencv_face
+#LIBS += -L/usr/lib/x86_64-linux-gnu/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui
+#LIBS += -L/usr/local/lib -lopencv_shape -lopencv_videoio
+#-lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_shape -lopencv_videoio -lopencv_calib3d -lopencv_face
 #LIBS += -L/home/mike/Qt5.12.0/5.12.0/gcc_64/lib

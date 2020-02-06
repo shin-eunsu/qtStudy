@@ -18,7 +18,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -35,26 +35,25 @@ class Ui_MainWindow
 public:
     QAction *action_Open;
     QAction *actionE_xit;
+    QAction *actionSave_AugImage;
     QWidget *centralWidget;
     QLineEdit *txt_path;
     QGraphicsView *gv1;
     QLabel *lbl_path;
-    QListView *listView;
     QLineEdit *txt_resize_width;
     QLineEdit *txt_resize_height;
     QSlider *sbar_rotate;
-    QLineEdit *txt_rename;
     QGraphicsView *gv2;
-    QPushButton *btn_save;
     QLabel *lbl_resize;
     QLabel *lbl_rotation;
-    QLabel *lbl_rename;
     QPushButton *btn_resize;
     QLineEdit *txt_rotation_angle;
     QPushButton *btn_rotation;
     QCheckBox *cb_hflip;
     QCheckBox *cb_vflip;
     QPushButton *btn_resize_default;
+    QListWidget *listWidget;
+    QLabel *label;
     QMenuBar *menuBar;
     QMenu *menu_File;
     QToolBar *mainToolBar;
@@ -74,6 +73,8 @@ public:
         action_Open->setObjectName(QStringLiteral("action_Open"));
         actionE_xit = new QAction(MainWindow);
         actionE_xit->setObjectName(QStringLiteral("actionE_xit"));
+        actionSave_AugImage = new QAction(MainWindow);
+        actionSave_AugImage->setObjectName(QStringLiteral("actionSave_AugImage"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         txt_path = new QLineEdit(centralWidget);
@@ -89,9 +90,6 @@ public:
         QFont font;
         font.setPointSize(12);
         lbl_path->setFont(font);
-        listView = new QListView(centralWidget);
-        listView->setObjectName(QStringLiteral("listView"));
-        listView->setGeometry(QRect(10, 260, 270, 341));
         txt_resize_width = new QLineEdit(centralWidget);
         txt_resize_width->setObjectName(QStringLiteral("txt_resize_width"));
         txt_resize_width->setGeometry(QRect(110, 60, 50, 25));
@@ -106,16 +104,11 @@ public:
         sbar_rotate->setMinimum(-180);
         sbar_rotate->setMaximum(180);
         sbar_rotate->setOrientation(Qt::Horizontal);
-        txt_rename = new QLineEdit(centralWidget);
-        txt_rename->setObjectName(QStringLiteral("txt_rename"));
-        txt_rename->setGeometry(QRect(110, 160, 170, 25));
         gv2 = new QGraphicsView(centralWidget);
         gv2->setObjectName(QStringLiteral("gv2"));
         gv2->setGeometry(QRect(400, 330, 501, 280));
-        btn_save = new QPushButton(centralWidget);
-        btn_save->setObjectName(QStringLiteral("btn_save"));
-        btn_save->setGeometry(QRect(290, 160, 70, 25));
-        btn_save->setFont(font);
+        sizePolicy.setHeightForWidth(gv2->sizePolicy().hasHeightForWidth());
+        gv2->setSizePolicy(sizePolicy);
         lbl_resize = new QLabel(centralWidget);
         lbl_resize->setObjectName(QStringLiteral("lbl_resize"));
         lbl_resize->setGeometry(QRect(20, 63, 70, 20));
@@ -124,10 +117,6 @@ public:
         lbl_rotation->setObjectName(QStringLiteral("lbl_rotation"));
         lbl_rotation->setGeometry(QRect(20, 90, 70, 20));
         lbl_rotation->setFont(font);
-        lbl_rename = new QLabel(centralWidget);
-        lbl_rename->setObjectName(QStringLiteral("lbl_rename"));
-        lbl_rename->setGeometry(QRect(20, 160, 70, 20));
-        lbl_rename->setFont(font);
         btn_resize = new QPushButton(centralWidget);
         btn_resize->setObjectName(QStringLiteral("btn_resize"));
         btn_resize->setGeometry(QRect(230, 60, 70, 25));
@@ -153,6 +142,12 @@ public:
         btn_resize_default->setObjectName(QStringLiteral("btn_resize_default"));
         btn_resize_default->setGeometry(QRect(310, 60, 80, 25));
         btn_resize_default->setFont(font);
+        listWidget = new QListWidget(centralWidget);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setGeometry(QRect(20, 170, 311, 721));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(30, 890, 67, 17));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -175,14 +170,12 @@ public:
         QWidget::setTabOrder(txt_rotation_angle, btn_rotation);
         QWidget::setTabOrder(btn_rotation, cb_hflip);
         QWidget::setTabOrder(cb_hflip, cb_vflip);
-        QWidget::setTabOrder(cb_vflip, txt_rename);
-        QWidget::setTabOrder(txt_rename, btn_save);
-        QWidget::setTabOrder(btn_save, listView);
-        QWidget::setTabOrder(listView, gv1);
+        QWidget::setTabOrder(cb_vflip, gv1);
         QWidget::setTabOrder(gv1, gv2);
 
         menuBar->addAction(menu_File->menuAction());
         menu_File->addAction(action_Open);
+        menu_File->addAction(actionSave_AugImage);
         menu_File->addAction(actionE_xit);
 
         retranslateUi(MainWindow);
@@ -195,18 +188,18 @@ public:
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Main", Q_NULLPTR));
         action_Open->setText(QApplication::translate("MainWindow", "&Open", Q_NULLPTR));
         actionE_xit->setText(QApplication::translate("MainWindow", "E&xit", Q_NULLPTR));
+        actionSave_AugImage->setText(QApplication::translate("MainWindow", "Save AugImage", Q_NULLPTR));
         lbl_path->setText(QApplication::translate("MainWindow", "PATH", Q_NULLPTR));
         txt_resize_width->setText(QString());
-        btn_save->setText(QApplication::translate("MainWindow", "Save", Q_NULLPTR));
         lbl_resize->setText(QApplication::translate("MainWindow", "Resize", Q_NULLPTR));
         lbl_rotation->setText(QApplication::translate("MainWindow", "Rotation", Q_NULLPTR));
-        lbl_rename->setText(QApplication::translate("MainWindow", "Rename", Q_NULLPTR));
         btn_resize->setText(QApplication::translate("MainWindow", "Resize", Q_NULLPTR));
         txt_rotation_angle->setPlaceholderText(QString());
         btn_rotation->setText(QApplication::translate("MainWindow", "Rotate", Q_NULLPTR));
         cb_hflip->setText(QApplication::translate("MainWindow", "Hflip", Q_NULLPTR));
         cb_vflip->setText(QApplication::translate("MainWindow", "Vflip", Q_NULLPTR));
         btn_resize_default->setText(QApplication::translate("MainWindow", "Default", Q_NULLPTR));
+        label->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         menu_File->setTitle(QApplication::translate("MainWindow", "&File", Q_NULLPTR));
     } // retranslateUi
 

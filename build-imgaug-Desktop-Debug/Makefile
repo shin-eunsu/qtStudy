@@ -38,7 +38,7 @@ DISTNAME      = imgaug1.0.0
 DISTDIR = /home/cu/github/qt/build-imgaug-Desktop-Debug/.tmp/imgaug1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/cu/anaconda3/lib
-LIBS          = $(SUBLIBS) `pkg-config --libs opencv` -L/usr/lib/x86_64-linux-gnu/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui -L/usr/local/lib -lopencv_shape -lopencv_videoio -L/home/cu/anaconda3/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) `pkg-config --libs opencv` -L/home/cu/anaconda3/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -217,7 +217,6 @@ DIST          = ../../../anaconda3/mkspecs/features/spec_pre.prf \
 		../../../anaconda3/mkspecs/features/qt_config.prf \
 		../../../anaconda3/mkspecs/linux-g++/qmake.conf \
 		../../../anaconda3/mkspecs/features/spec_post.prf \
-		../imgaug/.qmake.stash \
 		../../../anaconda3/mkspecs/features/exclusive_builds.prf \
 		../../../anaconda3/mkspecs/features/toolchain.prf \
 		../../../anaconda3/mkspecs/features/default_pre.prf \
@@ -410,7 +409,6 @@ Makefile: ../imgaug/imgaug.pro ../../../anaconda3/mkspecs/linux-g++/qmake.conf .
 		../../../anaconda3/mkspecs/features/qt_config.prf \
 		../../../anaconda3/mkspecs/linux-g++/qmake.conf \
 		../../../anaconda3/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		../../../anaconda3/mkspecs/features/exclusive_builds.prf \
 		../../../anaconda3/mkspecs/features/toolchain.prf \
 		../../../anaconda3/mkspecs/features/default_pre.prf \
@@ -431,9 +429,9 @@ Makefile: ../imgaug/imgaug.pro ../../../anaconda3/mkspecs/linux-g++/qmake.conf .
 		../../../anaconda3/mkspecs/features/yacc.prf \
 		../../../anaconda3/mkspecs/features/lex.prf \
 		../imgaug/imgaug.pro \
-		/usr/lib/x86_64-linux-gnu/libQt5Widgets.prl \
-		/usr/lib/x86_64-linux-gnu/libQt5Gui.prl \
-		/usr/lib/x86_64-linux-gnu/libQt5Core.prl
+		../../../anaconda3/lib/libQt5Widgets.prl \
+		../../../anaconda3/lib/libQt5Gui.prl \
+		../../../anaconda3/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../imgaug/imgaug.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 ../../../anaconda3/mkspecs/features/spec_pre.prf:
 ../../../anaconda3/mkspecs/common/unix.conf:
@@ -593,7 +591,6 @@ Makefile: ../imgaug/imgaug.pro ../../../anaconda3/mkspecs/linux-g++/qmake.conf .
 ../../../anaconda3/mkspecs/features/qt_config.prf:
 ../../../anaconda3/mkspecs/linux-g++/qmake.conf:
 ../../../anaconda3/mkspecs/features/spec_post.prf:
-.qmake.stash:
 ../../../anaconda3/mkspecs/features/exclusive_builds.prf:
 ../../../anaconda3/mkspecs/features/toolchain.prf:
 ../../../anaconda3/mkspecs/features/default_pre.prf:
@@ -614,9 +611,9 @@ Makefile: ../imgaug/imgaug.pro ../../../anaconda3/mkspecs/linux-g++/qmake.conf .
 ../../../anaconda3/mkspecs/features/yacc.prf:
 ../../../anaconda3/mkspecs/features/lex.prf:
 ../imgaug/imgaug.pro:
-/usr/lib/x86_64-linux-gnu/libQt5Widgets.prl:
-/usr/lib/x86_64-linux-gnu/libQt5Gui.prl:
-/usr/lib/x86_64-linux-gnu/libQt5Core.prl:
+../../../anaconda3/lib/libQt5Widgets.prl:
+../../../anaconda3/lib/libQt5Gui.prl:
+../../../anaconda3/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../imgaug/imgaug.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 
@@ -1217,56 +1214,7 @@ mainwindow.o: ../imgaug/mainwindow.cpp ../imgaug/mainwindow.h \
 		../../../anaconda3/include/qt/QtGui/qimagewriter.h \
 		../../../anaconda3/include/qt/QtCore/QStandardPaths \
 		../../../anaconda3/include/qt/QtCore/qstandardpaths.h \
-		ui_mainwindow.h \
-		../../../anaconda3/include/qt/QtCore/QVariant \
-		../../../anaconda3/include/qt/QtWidgets/QAction \
-		../../../anaconda3/include/qt/QtWidgets/qaction.h \
-		../../../anaconda3/include/qt/QtWidgets/qactiongroup.h \
-		../../../anaconda3/include/qt/QtWidgets/QApplication \
-		../../../anaconda3/include/qt/QtWidgets/qapplication.h \
-		../../../anaconda3/include/qt/QtWidgets/qdesktopwidget.h \
-		../../../anaconda3/include/qt/QtGui/qguiapplication.h \
-		../../../anaconda3/include/qt/QtGui/qinputmethod.h \
-		../../../anaconda3/include/qt/QtWidgets/QButtonGroup \
-		../../../anaconda3/include/qt/QtWidgets/qbuttongroup.h \
-		../../../anaconda3/include/qt/QtWidgets/QCheckBox \
-		../../../anaconda3/include/qt/QtWidgets/qcheckbox.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
-		../../../anaconda3/include/qt/QtWidgets/QHeaderView \
-		../../../anaconda3/include/qt/QtWidgets/qheaderview.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractitemview.h \
-		../../../anaconda3/include/qt/QtCore/qabstractitemmodel.h \
-		../../../anaconda3/include/qt/QtCore/qitemselectionmodel.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractitemdelegate.h \
-		../../../anaconda3/include/qt/QtWidgets/qstyleoption.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractspinbox.h \
-		../../../anaconda3/include/qt/QtGui/qvalidator.h \
-		../../../anaconda3/include/qt/QtCore/qregularexpression.h \
-		../../../anaconda3/include/qt/QtWidgets/qslider.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractslider.h \
-		../../../anaconda3/include/qt/QtWidgets/qstyle.h \
-		../../../anaconda3/include/qt/QtWidgets/qtabbar.h \
-		../../../anaconda3/include/qt/QtWidgets/qrubberband.h \
-		../../../anaconda3/include/qt/QtWidgets/QLabel \
-		../../../anaconda3/include/qt/QtWidgets/qlabel.h \
-		../../../anaconda3/include/qt/QtWidgets/QLineEdit \
-		../../../anaconda3/include/qt/QtWidgets/qlineedit.h \
-		../../../anaconda3/include/qt/QtGui/qtextcursor.h \
-		../../../anaconda3/include/qt/QtGui/qtextformat.h \
-		../../../anaconda3/include/qt/QtWidgets/QListView \
-		../../../anaconda3/include/qt/QtWidgets/qlistview.h \
-		../../../anaconda3/include/qt/QtWidgets/QMenu \
-		../../../anaconda3/include/qt/QtWidgets/qmenu.h \
-		../../../anaconda3/include/qt/QtWidgets/QMenuBar \
-		../../../anaconda3/include/qt/QtWidgets/qmenubar.h \
-		../../../anaconda3/include/qt/QtWidgets/QPushButton \
-		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
-		../../../anaconda3/include/qt/QtWidgets/QSlider \
-		../../../anaconda3/include/qt/QtWidgets/QStatusBar \
-		../../../anaconda3/include/qt/QtWidgets/qstatusbar.h \
-		../../../anaconda3/include/qt/QtWidgets/QToolBar \
-		../../../anaconda3/include/qt/QtWidgets/qtoolbar.h \
-		../../../anaconda3/include/qt/QtWidgets/QWidget
+		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../imgaug/mainwindow.cpp
 
 imgview.o: ../imgaug/imgview.cpp ../imgaug/imgview.h \
@@ -1371,46 +1319,7 @@ imgview.o: ../imgaug/imgview.cpp ../imgaug/imgview.h \
 		../../../anaconda3/include/qt/QtCore/qfiledevice.h \
 		../../../anaconda3/include/qt/QtGui/qvector2d.h \
 		../../../anaconda3/include/qt/QtGui/qtouchdevice.h \
-		ui_imgview.h \
-		../../../anaconda3/include/qt/QtCore/QVariant \
-		../../../anaconda3/include/qt/QtWidgets/QAction \
-		../../../anaconda3/include/qt/QtWidgets/qaction.h \
-		../../../anaconda3/include/qt/QtGui/qicon.h \
-		../../../anaconda3/include/qt/QtWidgets/qactiongroup.h \
-		../../../anaconda3/include/qt/QtWidgets/QApplication \
-		../../../anaconda3/include/qt/QtWidgets/qapplication.h \
-		../../../anaconda3/include/qt/QtCore/qcoreapplication.h \
-		../../../anaconda3/include/qt/QtCore/qeventloop.h \
-		../../../anaconda3/include/qt/QtWidgets/qdesktopwidget.h \
-		../../../anaconda3/include/qt/QtGui/qguiapplication.h \
-		../../../anaconda3/include/qt/QtGui/qinputmethod.h \
-		../../../anaconda3/include/qt/QtWidgets/QButtonGroup \
-		../../../anaconda3/include/qt/QtWidgets/qbuttongroup.h \
-		../../../anaconda3/include/qt/QtWidgets/QGraphicsView \
-		../../../anaconda3/include/qt/QtWidgets/qgraphicsview.h \
-		../../../anaconda3/include/qt/QtGui/qpainter.h \
-		../../../anaconda3/include/qt/QtGui/qtextoption.h \
-		../../../anaconda3/include/qt/QtGui/qpen.h \
-		../../../anaconda3/include/qt/QtWidgets/qscrollarea.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractscrollarea.h \
-		../../../anaconda3/include/qt/QtWidgets/qframe.h \
-		../../../anaconda3/include/qt/QtWidgets/qgraphicsscene.h \
-		../../../anaconda3/include/qt/QtWidgets/QHeaderView \
-		../../../anaconda3/include/qt/QtWidgets/qheaderview.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractitemview.h \
-		../../../anaconda3/include/qt/QtCore/qabstractitemmodel.h \
-		../../../anaconda3/include/qt/QtCore/qitemselectionmodel.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractitemdelegate.h \
-		../../../anaconda3/include/qt/QtWidgets/qstyleoption.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractspinbox.h \
-		../../../anaconda3/include/qt/QtGui/qvalidator.h \
-		../../../anaconda3/include/qt/QtCore/qregularexpression.h \
-		../../../anaconda3/include/qt/QtWidgets/qslider.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractslider.h \
-		../../../anaconda3/include/qt/QtWidgets/qstyle.h \
-		../../../anaconda3/include/qt/QtWidgets/qtabbar.h \
-		../../../anaconda3/include/qt/QtWidgets/qtabwidget.h \
-		../../../anaconda3/include/qt/QtWidgets/qrubberband.h
+		ui_imgview.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o imgview.o ../imgaug/imgview.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
