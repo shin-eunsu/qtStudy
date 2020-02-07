@@ -1,14 +1,15 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2020-02-04T16:43:57
+# Project created by QtCreator 2020-02-07T15:15:21
 #
 #-------------------------------------------------
 
 QT       += core gui
+QT += gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = imgaug
+TARGET = qt_socket
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -25,16 +26,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    imgview.cpp
+        mainwindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    imgview.h
+    client.h
 
 FORMS += \
-        mainwindow.ui \
-    imgview.ui
+        mainwindow.ui
 
-INCLUDEPATH += /usr/local/include/opencv /usr/local/include
-LIBS += `pkg-config --libs opencv`

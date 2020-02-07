@@ -12,3 +12,15 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+bool checkCameraAvailability()
+{
+    if(QCameraInfo::availableCameras().count() > 0)
+        return true;
+    else
+        return false;
+}
+
+void MainWindow::on_btn_test_clicked()
+{
+}
