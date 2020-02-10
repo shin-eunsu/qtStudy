@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_MULTIMEDIAWIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -std=gnu++14 -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../webcam -I. -I../../../anaconda3/include/qt -I../../../anaconda3/include/qt/QtMultimediaWidgets -I../../../anaconda3/include/qt/QtMultimedia -I../../../anaconda3/include/qt/QtWidgets -I../../../anaconda3/include/qt/QtGui -I../../../anaconda3/include/qt/QtNetwork -I../../../anaconda3/include/qt/QtCore -I. -I. -I../../../anaconda3/mkspecs/linux-g++
 QMAKE         = /home/cu/anaconda3/bin/qmake
 DEL_FILE      = rm -f
@@ -664,7 +664,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../anaconda3/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h ../../../anaconda3/mkspecs/features/data/dummy.cpp
+	g++ -pipe -std=gnu++14 -g -Wall -W -dM -E -o moc_predefs.h ../../../anaconda3/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
@@ -2493,6 +2493,7 @@ mainwindow.o: ../webcam/mainwindow.cpp ../webcam/mainwindow.h \
 		../../../anaconda3/include/qt/QtWidgets/QGraphicsView \
 		../../../anaconda3/include/qt/QtWidgets/QHeaderView \
 		../../../anaconda3/include/qt/QtWidgets/QMenuBar \
+		../../../anaconda3/include/qt/QtWidgets/QPushButton \
 		../../../anaconda3/include/qt/QtWidgets/QStatusBar \
 		../../../anaconda3/include/qt/QtWidgets/QToolBar
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../webcam/mainwindow.cpp

@@ -1,15 +1,15 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2020-02-07T15:15:21
+# Project created by QtCreator 2020-02-10T10:46:18
 #
 #-------------------------------------------------
 
 QT      += core gui
-QT      += gui network
+QT      += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = qt_socket
+TARGET = qt_socket_client
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -29,9 +29,7 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
-    client.h
+        mainwindow.h
 
 FORMS += \
         mainwindow.ui
-

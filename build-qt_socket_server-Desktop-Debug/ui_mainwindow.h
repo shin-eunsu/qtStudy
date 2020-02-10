@@ -16,11 +16,8 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,52 +25,25 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QWidget *centralWidget;
-    QVBoxLayout *verticalLayout;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QPushButton *btn_test;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
+    QWidget *centralWidget;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(994, 654);
-        centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout = new QVBoxLayout(centralWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        scrollArea = new QScrollArea(centralWidget);
-        scrollArea->setObjectName(QStringLiteral("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 974, 540));
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        verticalLayout->addWidget(scrollArea);
-
-        btn_test = new QPushButton(centralWidget);
-        btn_test->setObjectName(QStringLiteral("btn_test"));
-        QFont font;
-        font.setPointSize(12);
-        btn_test->setFont(font);
-
-        verticalLayout->addWidget(btn_test);
-
-        MainWindow->setCentralWidget(centralWidget);
+        MainWindow->resize(400, 300);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 994, 22));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
+        MainWindow->addToolBar(mainToolBar);
+        centralWidget = new QWidget(MainWindow);
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
         MainWindow->setStatusBar(statusBar);
@@ -86,7 +56,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        btn_test->setText(QApplication::translate("MainWindow", "test", Q_NULLPTR));
     } // retranslateUi
 
 };
