@@ -25,3 +25,13 @@ void MainWindow::onReadyRead()
     qDebug() << datas;
     _socket.write(QByteArray("ok \n"));
 }
+
+void MainWindow::on_btn_fileopen_clicked()
+{
+
+}
+
+void MainWindow::on_btn_webcam_clicked()
+{
+
+}

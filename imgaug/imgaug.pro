@@ -36,8 +36,8 @@ FORMS += \
         mainwindow.ui \
     imgview.ui
 
-INCLUDEPATH += /usr/local/include/opencv4/opencv2 /usr/local/include
-LIBS += `pkg-config --libs opencv`
+#INCLUDEPATH += /usr/local/include/opencv4/opencv2 /usr/local/include
+#LIBS += `pkg-config --libs opencv`
 #LIBS += -L/usr/lib/x86_64-linux-gnu/ -lopencv_core -lopencv_imgcodecs -lopencv_highgui
 #LIBS += -L/usr/local/lib -lopencv_shape -lopencv_videoio
 #-lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_shape -lopencv_videoio -lopencv_calib3d -lopencv_face
